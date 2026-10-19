@@ -1,0 +1,9 @@
+# dshx-language-mirror 随包默认配置。实际以 profile 的 cordis.patch.yml 为准。
+- insert:
+    - id: dshx-language-mirror
+      name: dshx-language-mirror
+      config:
+        enabled: true
+        order: 5      # 系统提示段落排序，越小越靠前
+        extra: ""     # 追加的自定义说明
+        text: ""      # 完全替换默认规则（留空用默认）

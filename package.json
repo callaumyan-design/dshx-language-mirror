@@ -1,0 +1,45 @@
+{
+  "name": "dshx-language-mirror",
+  "version": "1.0.0",
+  "description": "Always reply (including final reports) in the language of the user's latest prompt.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis"
+  ],
+  "author": "callaumyan-design",
+  "license": "MIT",
+  "homepage": "https://github.com/callaumyan-design/dshx-language-mirror#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callaumyan-design/dshx-language-mirror.git"
+  },
+  "bugs": {
+    "url": "https://github.com/callaumyan-design/dshx-language-mirror/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "index.js"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "marketplace": {
+      "profiles": [
+        "headless",
+        "web",
+        "desktop"
+      ],
+      "requiresBuildApproval": false,
+      "requiresRestart": true,
+      "manualSteps": false
+    }
+  }
+}
