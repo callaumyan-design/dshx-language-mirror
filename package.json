@@ -1,6 +1,6 @@
 {
   "name": "dshx-language-mirror",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Always reply (including final reports) in the language of the user's latest prompt.",
   "keywords": [
     "dsh",

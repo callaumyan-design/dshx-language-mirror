@@ -23,4 +23,8 @@ function fakeCtx({ viaInject = true } = {}) {
 assert.equal(buildRule({ text: 'X', extra: 'Y' }), 'X\nY')
 assert.match(buildRule({ extra: '报告结尾加一句总结' }), /报告结尾加一句总结$/)
 assert.match(DEFAULT_RULE, /final report/)
+assert.match(DEFAULT_RULE, /actually typed by the human/)
+assert.match(DEFAULT_RULE, /Harness-injected user-role blocks/)
+for (const marker of ['Current runtime context', '<system-reminder>', '<hindsight_knowledge', 'Time sampled while preparing']) assert.ok(DEFAULT_RULE.includes(marker), marker)
+assert.match(DEFAULT_RULE, /MUST be in Chinese/)
 console.log('ok')

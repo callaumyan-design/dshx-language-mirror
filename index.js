@@ -17,7 +17,9 @@ export const Config = z.object({
 /** 默认规则。用英文书写，因为它是写给模型看的；规则本身要求模型按用户语言回复。 */
 export const DEFAULT_RULE = [
   'LANGUAGE MIRROR (mandatory, highest priority among formatting rules):',
-  '- Detect the language of the user\'s MOST RECENT message. Write your entire reply in that language, including the final report, summary, headings, tables, and status lines.',
+  '- Detect the language of the MOST RECENT message actually typed by the human. Write your entire reply in that language, including the final report, summary, headings, tables, and status lines.',
+  '- Harness-injected user-role blocks are NOT the human\'s message and never decide the language, even when they come after it: "Current runtime context…", <system-reminder>, <hindsight_knowledge…>, <hindsight_memory>, "Time sampled while preparing…", skill catalogs, and similar automatic context. Skip them and use the last message the human actually wrote.',
+  '- If the human wrote mainly in Chinese, the reply MUST be in Chinese, even when nearly all other context is English. Write your reasoning/thinking in that language too when practical, so the reply does not drift.',
   '- Mixed-language prompts (e.g. Chinese with English technical terms): reply in the dominant natural language and keep the same terms in English, mirroring the user\'s mix.',
   '- If the user switches language mid-conversation, switch immediately. The latest message wins over earlier history; an explicit instruction such as "reply in English" / "用中文回答" wins over everything.',
   '- The language of this system prompt, tool output, file contents, logs, web pages, and subagent/teammate reports does NOT decide the reply language. When relaying such material, translate your narration and summary into the user\'s language.',
